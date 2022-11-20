@@ -14,7 +14,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   private readonly subscription = new Subscription();
 
   /** List of todos. */
-  todos: Todo[] = [];
+  todos: ReadonlyArray<Todo> = [];
 
   constructor(private appService: AppService) {
     console.debug('TodosComponent initiated.');
@@ -22,7 +22,7 @@ export class TodosComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription.add(this.appService.todos.subscribe({
-      next: (value: Todo[]): void => {
+      next: (value: ReadonlyArray<Todo>): void => {
         this.todos = value;
       },
     }));

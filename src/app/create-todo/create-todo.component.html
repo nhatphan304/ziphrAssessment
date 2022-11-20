@@ -1,0 +1,47 @@
+<!-- Heading -->
+<h5>Create Todo</h5>
+
+<!-- Form -->
+<form (ngSubmit)="submitForm()" [formGroup]="form">
+
+  <!-- Title control -->
+  <div class="mb-3">
+    <label class="form-label" for="title">Title:</label>
+    <input appFormControl class="form-control" formControlName="title" id="title">
+    <p class="invalid-feedback">
+      {{ 'title' | requiredError}}
+    </p>
+  </div>
+
+  <!-- Date control -->
+  <div class="mb-3">
+    <label class="form-label" for="date">Date:</label>
+    <input appFormControl class="form-control" formControlName="date" id="date"
+           type="date">
+    <p class="invalid-feedback">
+      {{ 'date' | requiredError}}
+    </p>
+  </div>
+
+  <!-- Done control -->
+  <div class="form-check mb-3">
+    <input class="form-check-input" formControlName="done" id="done" type="checkbox">
+    <label class="form-check-label" for="done">
+      Done
+    </label>
+  </div>
+
+  <!-- Priority control -->
+  <div class="mb-3">
+    <select appFormControl class="form-select" formControlName="priority">
+      <option [value]="priorities.HIGH">High</option>
+      <option [value]="priorities.NORMAL">Normal</option>
+      <option [value]="priorities.LOW">Low</option>
+    </select>
+  </div>
+
+  <!-- Submit button -->
+  <button class="btn btn-primary" type="submit">
+    Create Todo
+  </button>
+</form>

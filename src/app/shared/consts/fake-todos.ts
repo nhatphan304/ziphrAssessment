@@ -2,7 +2,7 @@ import { TodoPriority } from '../enums/todo-priority';
 import { Todo } from '../interfaces/todo';
 
 /** List of fake todos for testing. */
-export const FakeTodos: Todo[] = [
+export const FakeTodos: ReadonlyArray<Todo> = [
   {
     title: 'Setup Foo module for testing',
     date: Date.now(),
